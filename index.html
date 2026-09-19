@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="quantum">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Molina — Ingeniero de Software & Sistemas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+</head>
+<body>
+
+  <!-- Ambient Cursor Spotlight & Canvas Particle Engine -->
+  <div class="ambient-spotlight"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>CARLOS<span style="color: var(--accent-primary)">.MOLINA</span></span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="active">Inicio</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#experiencia">Trayectoria</a></li>
+        <li><a href="#terminal">Terminal</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Audio Synth Toggle -->
+        <button id="audio-toggle-btn" class="audio-toggle-btn" title="Activar/Desactivar Audio Sintetizado">
+          <span id="audio-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </span>
+          <span>SFX</span>
+        </button>
+
+        <!-- Theme Picker Dropdown -->
+        <div class="theme-dropdown">
+          <button id="theme-picker-btn" class="theme-picker-btn" title="Cambiar Tema Visual">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+            </svg>
+            <span>Tema</span>
+          </button>
+          <div id="theme-menu" class="theme-menu">
+            <button class="theme-option active" data-set-theme="quantum">
+              <span class="theme-color-dot" style="background:#38bdf8; color:#38bdf8"></span>
+              <span>Quantum Cyan</span>
+            </button>
+            <button class="theme-option" data-set-theme="cyberpunk">
+              <span class="theme-color-dot" style="background:#ec4899; color:#ec4899"></span>
+              <span>Cyberpunk Neon</span>
+            </button>
+            <button class="theme-option" data-set-theme="matrix">
+              <span class="theme-color-dot" style="background:#22c55e; color:#22c55e"></span>
+              <span>Emerald Matrix</span>
+            </button>
+            <button class="theme-option" data-set-theme="solar">
+              <span class="theme-color-dot" style="background:#f59e0b; color:#f59e0b"></span>
+              <span>Solar Flare</span>
+            </button>
+          </div>
+        </div>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menú Móvil">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="container hero-content">
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          <span>Disponible para prácticas profesionales & freelance</span>
+        </div>
+
+        <h1 class="hero-title">
+          Carlos Molina Tomases<br>
+          <span class="gradient-text">Ingeniero de Sistemas & Software</span>
+        </h1>
+
+        <div class="hero-subtitle-container">
+          <span>Especialidad: </span>
+          <span id="typewriter" class="typewriter-text"></span>
+          <span class="typewriter-cursor">|</span>
+        </div>
+
+        <p class="hero-description">
+          Estudiante de Ingeniería de Sistemas en <strong>Universidad CEIPA</strong> apasionado por el desarrollo de software, la arquitectura en capas y la gestión de bases de datos. Experiencia práctica en soporte técnico de TICs, infraestructura y aplicaciones web con <strong>Python, React y SQL</strong>.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#proyectos" class="btn btn-primary">
+            <span>Ver Proyectos</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="https://wa.me/573233318962" target="_blank" class="btn btn-secondary">
+            <span>Contactar WhatsApp</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </a>
+          <a href="#terminal" class="btn btn-secondary">
+            <span>Terminal CLI</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="metrics-strip">
+          <div class="metric-item">
+            <div class="metric-value">CEIPA</div>
+            <div class="metric-label">Ing. Sistemas (2025 - Act.)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">+5 Años</div>
+            <div class="metric-label">Soporte TICs & Gestión</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">Full Stack</div>
+            <div class="metric-label">Python · React · SQL</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">Docker</div>
+            <div class="metric-label">Contenedores & ORM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="proyectos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">&lt; PORTAFOLIO &gt;</span>
+          <h2 class="section-title">Proyectos <span class="gradient-text">Destacados</span></h2>
+          <p class="section-subtitle">Aplicaciones y desarrollos reales construidos con estándares profesionales de software.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Quantum Core -->
+          <div class="tilt-card">
+            <div class="card-glare"></div>
+            <div class="project-visual">
+              <span class="project-visual-badge">Full Stack • Docker</span>
+              <div class="project-visual-icon">⚡</div>
+            </div>
+            <h3 class="project-title">
+              <span>Quantum Core</span>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-family:'JetBrains Mono'">v1.0</span>
+            </h3>
+            <p class="project-desc">
+              Aplicación transaccional full-stack desacoplada en tres capas independientes: Frontend en React + Vite, Backend API REST en Flask y base de datos relacional MySQL contenedorizada en Docker con Prisma ORM y arquitectura orientada a objetos (SRP).
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Prisma ORM</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">POO</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Yulix0630" target="_blank" class="project-link-btn">
+                <span>Ver en GitHub</span>
+                <span>→</span>
+              </a>
+              <a href="#terminal" class="project-link-btn" style="color:var(--text-muted)">
+                <span>CLI: 'projects'</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2: Sistema Help Desk -->
+          <div class="tilt-card">
+            <div class="card-glare"></div>
+            <div class="project-visual">
+              <span class="project-visual-badge">Web • Help Desk</span>
+              <div class="project-visual-icon">🛠️</div>
+            </div>
+            <h3 class="project-title">
+              <span>Sistema de Gestión Help Desk</span>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-family:'JetBrains Mono'">v1.5</span>
+            </h3>
+            <p class="project-desc">
+              Plataforma web para la gestión e itinerancia de tickets de soporte técnico. Incluye tableros de control para análisis de tiempos de respuesta, categorización de incidencias y métricas operativas de rendimiento.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">Lógica / Análisis</span>
+              <span class="tech-tag">Dashboard</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Yulix0630" target="_blank" class="project-link-btn">
+                <span>Ver Repositorio</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3: Arquitectura POO & Persistencia -->
+          <div class="tilt-card">
+            <div class="card-glare"></div>
+            <div class="project-visual">
+              <span class="project-visual-badge">OOP & Clean Code</span>
+              <div class="project-visual-icon">🏛️</div>
+            </div>
+            <h3 class="project-title">
+              <span>Módulo de Validación & Datos</span>
+              <span style="font-size:0.85rem; color:var(--accent-primary); font-family:'JetBrains Mono'">v2.0</span>
+            </h3>
+            <p class="project-desc">
+              Diseño de entidades robustas con encapsulamiento estricto, manejo de excepciones con try/except para evitar caídas de servidor, serialización JSON e integración con modelos de datos normalizados.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">POO</span>
+              <span class="tech-tag">UML</span>
+              <span class="tech-tag">JSON</span>
+              <span class="tech-tag">SQLite</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Yulix0630" target="_blank" class="project-link-btn">
+                <span>Ver Código</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="habilidades" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">&lt; COMPETENCIAS &gt;</span>
+          <h2 class="section-title">Habilidades & <span class="gradient-text">Herramientas</span></h2>
+          <p class="section-subtitle">Conocimientos técnicos aplicados en desarrollo, gestión de bases de datos e infraestructura.</p>
+        </div>
+
+        <div class="skills-container">
+          <!-- Card 1: Desarrollo Web & Frontend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="category-title">Frontend & Web</h3>
+            </div>
+            <div class="skill-list">
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">⚛️ React & Vite</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="90%" style="width: 0%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🎨 Tailwind CSS / HTML5</span>
+                  <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="95%" style="width: 0%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🟨 JavaScript (ESNext)</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="88%" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Backend & Lógica -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <h3 class="category-title">Backend & Lógica</h3>
+            </div>
+            <div class="skill-list">
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🐍 Python (Flask / APIs)</span>
+                  <span class="skill-percent">92%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="92%" style="width: 0%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🟢 Node.js / Java</span>
+                  <span class="skill-percent">82%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="82%" style="width: 0%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🧠 Lógica, POO & Algoritmos</span>
+                  <span class="skill-percent">94%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="94%" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Datos, Infraestructura & TICs -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Bases de Datos & TICs</h3>
+            </div>
+            <div class="skill-list">
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🗄️ SQL / MySQL / Prisma</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="90%" style="width: 0%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🐳 Docker & Contenedores</span>
+                  <span class="skill-percent">86%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="86%" style="width: 0%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="skill-item-info">
+                  <span class="skill-name">🐧 Soporte TICs & Redes</span>
+                  <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill" data-target-width="95%" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION SECTION -->
+    <section id="experiencia" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">&lt; TRAYECTORIA &gt;</span>
+          <h2 class="section-title">Experiencia & <span class="gradient-text">Educación</span></h2>
+          <p class="section-subtitle">Recorrido profesional y formación académica continua.</p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Item 1: CEIPA -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-panel timeline-card">
+              <span class="timeline-badge">Enero 2025 - Actualidad • Educación</span>
+              <h3 class="timeline-role">Ingeniería de Sistemas</h3>
+              <div class="timeline-place">Universidad CEIPA</div>
+              <p class="timeline-desc">
+                Formación enfocada en el diseño y desarrollo de software, arquitectura de sistemas, gestión de bases de datos relacionales y solución de problemas empresariales mediante tecnología. Excelente rendimiento académico.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Todo Eléctrico Tavo -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-panel timeline-card">
+              <span class="timeline-badge">2019 - Actualidad • Laboral</span>
+              <h3 class="timeline-role">Auxiliar Contable y Técnico en Sistemas</h3>
+              <div class="timeline-place">Todo Eléctrico Tavo</div>
+              <p class="timeline-desc">
+                Registro de información contable y financiera, soporte técnico a usuarios, mantenimiento preventivo y correctivo de equipos de cómputo y optimización de flujos de datos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: SuperBrix -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-panel timeline-card">
+              <span class="timeline-badge">Enero 2018 - Julio 2018 • Prácticas</span>
+              <h3 class="timeline-role">Auxiliar de TIC's</h3>
+              <div class="timeline-place">SuperBrix S.A.</div>
+              <p class="timeline-desc">
+                Registro y administración de información en el sistema corporativo, mantenimiento de infraestructura de cómputo y asistencia técnica directa a usuarios.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: SENA -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-panel timeline-card">
+              <span class="timeline-badge">2016 • Educación</span>
+              <h3 class="timeline-role">Técnico en Documentación y Registro Contable</h3>
+              <div class="timeline-place">Servicio Nacional de Aprendizaje (SENA)</div>
+              <p class="timeline-desc">
+                Formación integral en gestión contable, manejo avanzado de hojas de cálculo (Excel), control documental y procesos administrativos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5: Education HUB -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="glass-panel timeline-card">
+              <span class="timeline-badge">2015 - 2017 • Laboral</span>
+              <h3 class="timeline-role">Auxiliar de Sistemas</h3>
+              <div class="timeline-place">Education HUB</div>
+              <p class="timeline-desc">
+                Mantenimiento y reparación de equipos de cómputo. Puesta a punto de salas tecnológicas, redes y equipos audiovisuales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TERMINAL SECTION -->
+    <section id="terminal" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">&lt; TERMINAL CLI &gt;</span>
+          <h2 class="section-title">Consola de <span class="gradient-text">Comandos</span></h2>
+          <p class="section-subtitle">Interactúa directamente con el perfil de Carlos Molina mediante la terminal.</p>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-topbar">
+            <div class="terminal-dots">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+            </div>
+            <span class="terminal-title">carlos@quantum-core: ~ (bash)</span>
+            <span style="font-family:'JetBrains Mono'; font-size:0.75rem; color:var(--accent-primary)">STATUS: CONNECTED</span>
+          </div>
+
+          <div class="terminal-body">
+            <div class="terminal-output" id="terminal-output">
+              <div class="terminal-line-accent">=====================================================</div>
+              <div class="terminal-line-accent"> CARLOS MOLINA • INGENIERO DE SISTEMAS & SOFTWARE</div>
+              <div class="terminal-line-accent">=====================================================</div>
+              <div>Bienvenido. Escribe <span class="terminal-line-accent">help</span> para consultar los comandos disponibles, o pulsa un botón rápido:</div>
+            </div>
+
+            <div class="terminal-input-row">
+              <span class="terminal-prompt-symbol">carlos@quantum:~$</span>
+              <input type="text" id="terminal-input" class="terminal-input" placeholder="Escribe un comando (ej: about, skills, projects, contact)..." autocomplete="off" spellcheck="false">
+            </div>
+
+            <div class="terminal-hints">
+              <span>Accesos rápidos:</span>
+              <span class="terminal-badge-cmd" data-cmd="about">about</span>
+              <span class="terminal-badge-cmd" data-cmd="skills">skills</span>
+              <span class="terminal-badge-cmd" data-cmd="projects">projects</span>
+              <span class="terminal-badge-cmd" data-cmd="experience">experience</span>
+              <span class="terminal-badge-cmd" data-cmd="contact">contact</span>
+              <span class="terminal-badge-cmd" data-cmd="theme cyberpunk">theme cyberpunk</span>
+              <span class="terminal-badge-cmd" data-cmd="matrix">matrix</span>
+              <span class="terminal-badge-cmd" data-cmd="clear">clear</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">&lt; CONECTEMOS &gt;</span>
+          <h2 class="section-title">Canales de <span class="gradient-text">Contacto</span></h2>
+          <p class="section-subtitle">Disponible para proyectos, prácticas profesionales o colaboraciones de desarrollo.</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- Info Column -->
+          <div class="glass-panel contact-info-card">
+            <h3 style="font-size:1.4rem; margin-bottom: 0.75rem">Información de Contacto</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem">
+              Ponte en contacto conmigo por correo electrónico, llamada o WhatsApp para discutir oportunidades laborales o técnicas.
+            </p>
+
+            <div class="contact-direct-group">
+              <!-- Email -->
+              <div class="contact-method" id="copy-email-btn" title="Haz clic para copiar el email">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-method-label">Correo Electrónico (Clic para copiar)</div>
+                  <div class="contact-method-val">carlosmt67@gmail.com</div>
+                </div>
+              </div>
+
+              <!-- Phone / WhatsApp -->
+              <a href="https://wa.me/573233318962" target="_blank" class="contact-method" style="text-decoration:none">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-method-label">Teléfono / WhatsApp</div>
+                  <div class="contact-method-val">+57 323 331 8962</div>
+                </div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/carlos-arturo-molina-tomases-a8856a124/" target="_blank" class="contact-method" style="text-decoration:none">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-method-label">Perfil de LinkedIn</div>
+                  <div class="contact-method-val">carlos-arturo-molina-tomases</div>
+                </div>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/Yulix0630" target="_blank" class="contact-method" style="text-decoration:none">
+                <div class="contact-method-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-method-label">Perfil de GitHub</div>
+                  <div class="contact-method-val">github.com/Yulix0630</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="glass-panel contact-form">
+            <h3 style="font-size:1.4rem; margin-bottom: 1.5rem">Enviar Mensaje Directo</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <label class="form-label" for="nombre">Tu Nombre</label>
+                <input type="text" id="nombre" class="form-input" placeholder="Ej. Ana Gómez" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Tu Correo Electrónico</label>
+                <input type="email" id="email" class="form-input" placeholder="ana@empresa.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="mensaje">Mensaje o Propuesta</label>
+                <textarea id="mensaje" class="form-textarea" placeholder="Hola Carlos, me gustaría conversar sobre una oportunidad..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <span>Enviar Mensaje</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-text">
+        © 2026 <strong>Carlos Arturo Molina Tomases</strong> • Ingeniero de Sistemas en formación (Universidad CEIPA).
+      </div>
+      <div class="footer-socials">
+        <a href="https://github.com/Yulix0630" target="_blank" class="social-btn" title="GitHub">🐙</a>
+        <a href="https://linkedin.com/in/carlos-arturo-molina-tomases-a8856a124/" target="_blank" class="social-btn" title="LinkedIn">💼</a>
+        <a href="https://wa.me/573233318962" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+        <a href="#hero" class="social-btn" title="Volver al inicio">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="particles.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
